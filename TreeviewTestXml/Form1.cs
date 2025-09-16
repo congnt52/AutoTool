@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -46,9 +47,8 @@ namespace TreeviewTestXml
         private void Form1_Load(object sender, EventArgs e)
         {
             treeView1.Nodes.Clear();
-
-            XmlDoc.Load(Application.StartupPath + @"\\Test.xml");
-
+            string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..\\..\\Test.xml");
+            XmlDoc.Load(path);
             LoadTreeViewFromXmlDoc(XmlDoc, treeView1);
 
 
